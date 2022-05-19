@@ -11,7 +11,8 @@ spec:
     path: /data/vaultwarden
   accessModes:
     - ReadWriteOnce
-  capacity:
-    storage: 1Gi
+  resources:
+    requests:
+      storage: 1Gi
   storageClassName: local-storage
   persistentVolumeReclaimPolicy: Retain
