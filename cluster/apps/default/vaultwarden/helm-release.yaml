@@ -23,7 +23,7 @@ spec:
       DOMAIN: https://vault.${SECRET_DOMAIN}
       #DATABASE_URL: postgresql://vaultwarden:${VAULTWARDEN_POSTGRES_PASSWORD}@vaultwarden-postgresql:5432/vaultwarden
       #ADMIN_TOKEN: ${VAULTWARDEN_ADMIN_TOKEN}
-      SIGNUPS_ALLOWED: true
+      SIGNUPS_ALLOWED: false
       #YUBICO_CLIENT_ID: ${VAULTWARDEN_YUBICO_CLIENT_ID}
       #YUBICO_SECRET_KEY: ${VAULTWARDEN_YUBICO_SECRET_KEY}
       WEBSOCKET_ENABLED: true
