@@ -3,10 +3,10 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: vaultwarden-data-v1
-  namespace: vaultwarden
+  namespace: passwords
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWrite
   resources:
     requests:
       storage: 2Gi
