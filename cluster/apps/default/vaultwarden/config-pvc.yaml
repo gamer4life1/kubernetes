@@ -4,10 +4,14 @@ kind: PersistentVolumeClaim
 metadata:
   name: vaultwarden-config
   namespace: default
+  labels:
+    type: local
 spec:
+  local:
+    path: /data/vaultwarden
   accessModes:
     - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
-  storageClassName: local-path
+  capacity:
+    storage: 1Gi
+  storageClassName: local-storage
+  persistentVolumeReclaimPolicy: Retain
