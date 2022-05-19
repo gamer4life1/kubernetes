@@ -39,7 +39,7 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: shield-lock
         hosts:
-          - host: &host vault.${DOMAIN}
+          - host: &host vault.${SECRET_DOMAIN}
             paths:
               - path: /
                 pathType: Prefix
