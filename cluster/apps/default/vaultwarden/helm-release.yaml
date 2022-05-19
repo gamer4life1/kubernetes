@@ -70,10 +70,15 @@ spec:
       #     - hosts:
       #         - *host
       #       secretName: vaultwarden-tls
+#    persistence:
+#      config:
+#        enabled: true
+#        existingClaim: vaultwarden-config
     persistence:
       config:
         enabled: true
-        existingClaim: vaultwarden-config
+        type: emptyDir
+        mountPath: /config
     # postgresql:
     #   enabled: true
     #   postgresqlUsername: vaultwarden
