@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: &app vaultwarden
+  name: vaultwarden
   namespace: vaultwarden
 spec:
   interval: 5m
@@ -18,38 +18,43 @@ spec:
       interval: 5m
   install:
     createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
   values:
-    global:
-      nameOverride: *app
+    # global:
+    #   nameOverride: *app
     image:
       repository: vaultwarden/server
       tag: 1.24.0
     env:
       WEBSOCKET_ENABLED: true
     service:
-     main:
-       ports:
-         http:
-           port: 80
-         websocket:
-           port: 3012
+    main:
+      ports:
+        http:
+          port: 80
+        websocket:
+          port: 3012
     ingress:
-     main:
-       enabled: true
-       ingressClassName: "traefik"
-       annotations:
-         external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_PUBLIC_DOMAIN}"
-         external-dns/is-public: "true"
-         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-         traefik.ingress.kubernetes.io/router.middlewares: "networking-cloudflare-only@kubernetescrd"
-       hosts:
-         - host: "vault.${SECRET_DOMAIN}"
-           paths:
-             - "/"
-       tls:
-          - secretName: vaultwarden-tls
-            hosts:
-              - "vault.${SECRET_DOMAIN}"
+      main:
+      enabled: true
+      ingressClassName: "traefik"
+      annotations:
+        external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_PUBLIC_DOMAIN}"
+        external-dns/is-public: "true"
+        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        traefik.ingress.kubernetes.io/router.middlewares: "networking-cloudflare-only@kubernetescrd"
+      hosts:
+        - host: "vault.${SECRET_DOMAIN}"
+          paths:
+            - "/"
+      tls:
+        - secretName: vaultwarden-tls
+          hosts:
+            - "vault.${SECRET_DOMAIN}"
     resources:
       requests:
         cpu: 50m
