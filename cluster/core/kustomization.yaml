@@ -6,4 +6,4 @@ resources:
   - cert-manager
   - kube-system
   - metallb-system
-#  - local-path
+  - local-path
