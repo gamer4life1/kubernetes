@@ -11,4 +11,4 @@ resources:
   - default
   - kube-system
   - networking
-  - vaultwarden
+  - passwords
