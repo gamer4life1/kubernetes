@@ -16,6 +16,11 @@ spec:
         name: k8s-at-home-charts
         namespace: flux-system
   values:
+    podSecurityContext:
+      runAsUser: 65534
+      runAsGroup: 65534
+      fsGroup: 65534
+      fsGroupChangePolicy: OnRootMismatch
     image:
       repository: vaultwarden/server
       tag: 1.24.0
