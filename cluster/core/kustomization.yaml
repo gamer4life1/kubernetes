@@ -7,3 +7,4 @@ resources:
   - kube-system
   - metallb-system
   - local-path
+  - csi-driver-nfs
