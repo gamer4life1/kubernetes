@@ -6,6 +6,8 @@ metadata:
   namespace: bookmarks
 spec:
   interval: 10m
+  install:
+    createNamespace: true
   chart:
     spec:
       chart: kah-common-chart
