@@ -8,12 +8,11 @@ spec:
   interval: 10m
   chart:
     spec:
-      # renovate: registryUrl=https://charts.pascaliske.dev
-      chart: linkding
-      version: 0.0.2
+      chart: kah-common-chart
+      version: 1.1.2
       sourceRef:
         kind: HelmRepository
-        name: linkding-charts
+        name: k8s-at-home-charts
         namespace: flux-system
   values:
     podSecurityContext:
@@ -24,9 +23,11 @@ spec:
     #   runAsGroup: 65534
     #   fsGroup: 65534
     #   fsGroupChangePolicy: OnRootMismatch
+    env:
+      TZ: "America/Los_Angeles"
     image:
       repository: sissbruecker/linkding
-      tag: 1.8.8
+      tag: 1.9.0
     ingress:
       main:
         enabled: true
