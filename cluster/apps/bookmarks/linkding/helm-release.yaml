@@ -59,3 +59,4 @@ spec:
       config:
         enabled: true
         existingClaim: linkding-config
+        mountPath: /etc/linkding/data
