@@ -17,6 +17,11 @@ spec:
         name: k8s-at-home-charts
         namespace: flux-system
   values:
+    service:
+      main:
+        ports:
+          http:
+            port: 9090
     podSecurityContext:
       supplementalGroups:
         - 65534
