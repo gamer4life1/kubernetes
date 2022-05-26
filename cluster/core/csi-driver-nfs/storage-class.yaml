@@ -6,8 +6,8 @@ metadata:
   namespace: csi-driver-nfs
 provisioner: nfs.csi.k8s.io
 parameters:
-  server: "192.168.1.254"
-  share: /mnt/disk1/kubernetes
+  server: "192.168.0.25"
+  share: /local-zfs/kubernetes-pvc
 reclaimPolicy: Retain
 volumeBindingMode: Immediate
 mountOptions:
