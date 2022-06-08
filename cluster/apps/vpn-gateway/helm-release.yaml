@@ -66,10 +66,13 @@ spec:
                 # VPN traffic
                 - port: 51820
                   protocol: UDP
-            #- to:
-            #    - ipBlock:
-            #        cidr: 192.168.1.0/8
-    routed_namespaces:
+            - to:
+                - ipBlock:
+                    cidr: 192.168.1.0/24
+            - to:
+                - ipBlock:
+                    cidr: 192.168.0.0/24
+    routed_nmespaces:
       - downloads
     settings:
       VPN_INTERFACE: wg0
@@ -77,8 +80,8 @@ spec:
       VXLAN_IP_NETWORK: 172.16.1
       VPN_BLOCK_OTHER_TRAFFIC: true
       VPN_TRAFFIC_PORT: 51820
-      NOT_ROUTED_TO_GATEWAY_CIDRS: "172.16.0.0/12 ${NETWORK_MANAGEMENT_CIDR}"
-      VPN_LOCAL_CIDRS: "172.16.0.0/12 ${NETWORK_MANAGEMENT_CIDR}"
+      NOT_ROUTED_TO_GATEWAY_CIDRS: "172.16.0.0/12 192.168.0.0/8 192.168.1.0/24"
+      VPN_LOCAL_CIDRS: "172.16.0.0/12 192.168.0.0/24 192.168.1.0/24"
     publicPorts:
       - hostname: qbittorrent
         IP: 10
@@ -87,12 +90,3 @@ spec:
             port: 121829
           - type: tcp
             port: 121829
-    webhook:
-      image:
-        repository: ghcr.io/k8s-at-home/gateway-admision-controller
-        tag: v3.4.0
-      gatewayDefault: false
-      gatewayLabel: setGateway
-      gatewayAnnotation: setGateway
-      namespaceSelector:
-        label: "vpn-routed-gateway"
