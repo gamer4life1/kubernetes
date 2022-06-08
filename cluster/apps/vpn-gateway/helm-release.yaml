@@ -68,7 +68,7 @@ spec:
                   protocol: UDP
             - to:
                 - ipBlock:
-                  cidr: 192.168.1.0/8
+                    cidr: 192.168.1.0/8
     routed_namespaces:
       - downloads
     settings:
