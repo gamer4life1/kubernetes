@@ -14,4 +14,4 @@ resources:
   - flux-system
   - bookmarks
   - dashboard
-  - media
+#  - media
