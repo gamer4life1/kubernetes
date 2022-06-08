@@ -15,5 +15,5 @@ resources:
   - bookmarks
   - dashboard
 #  - media
-  - downloads
-  - vpn-gateway
+#  - downloads
+#  - vpn-gateway
