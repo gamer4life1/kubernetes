@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: radarr
-  namespace: media
+  namespace: downloads
 spec:
   interval: 15m
   chart:
@@ -15,8 +15,6 @@ spec:
         name: k8s-at-home-charts
         namespace: flux-system
       interval: 15m
-  #install:
-  #  createNamespace: true
   values:
     podSecurityContext:
       supplementalGroups:
@@ -68,15 +66,10 @@ spec:
       config:
         enabled: true
         existingClaim: radarr-config
-      media:
+      downloads:
         enabled: true
-        type: nfs
-        server: "192.168.0.25"
-        path: /local-zfs/media
-        mountOptions:
-          - hard
-          - nfsvers=4.1
-        mountPath: /media
+        existingClaim: downloads-pvc
+        mountMath: "/downloads"
     resources:
       requests:
         cpu: 100m
