@@ -73,6 +73,9 @@ spec:
         type: nfs
         server: "192.168.0.25"
         path: /local-zfs/media
+        mountOptions:
+          - hard
+          - nfsvers=4.1
         mountPath: /media
     resources:
       requests:

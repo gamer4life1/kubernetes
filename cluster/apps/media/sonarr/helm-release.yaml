@@ -74,6 +74,9 @@ spec:
         server: "192.168.0.25"
         path: /local-zfs/media
         mountPath: /media
+        mountOptions:
+          - hard
+          - nfsvers=4.1
     resources:
       requests:
         cpu: 100m
