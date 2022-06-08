@@ -70,9 +70,10 @@ spec:
         existingClaim: sonarr-config
       media:
         enabled: true
-        type: nfs
-        server: "192.168.0.25"
-        path: /local-zfs/media
+        #type: nfs
+        nfs:
+          server: "192.168.0.25"
+          path: /local-zfs/media
         mountPath: /media
         mountOptions:
           - hard
