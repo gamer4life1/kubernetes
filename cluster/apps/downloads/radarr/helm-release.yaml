@@ -45,7 +45,7 @@ spec:
         tls:
           - hosts:
               - *host
-            secretName: sonarr-tls
+            secretName: radarr-tls
     probes:
       liveness:
         enabled: true
