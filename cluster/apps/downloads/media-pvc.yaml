@@ -5,7 +5,7 @@ metadata:
   name: media-nfs-downloads-pv
   namespace: downloads
 spec:
-  storageClassName: nfs-csi
+  storageClassName: media-nfs
   capacity:
     storage: 1Mi
   accessModes:
@@ -24,7 +24,7 @@ metadata:
   name: media-downloads-pvc
   namespace: downloads
 spec:
-  storageClassName: nfs-csi
+  storageClassName: media-nfs
   accessModes:
     - ReadWriteMany
   resources:
