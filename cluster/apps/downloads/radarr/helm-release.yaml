@@ -69,7 +69,7 @@ spec:
         existingClaim: radarr-config
       media:
         enabled: true
-        existingClaim: media-pvc
+        existingClaim: media-downloads
         mountPath: "/media"
     resources:
       requests:
