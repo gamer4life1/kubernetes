@@ -64,7 +64,7 @@ spec:
         existingClaim: qbittorrent-config
       media:
         enabled: true
-        existingClaim: downloads-pvc
+        existingClaim: media-downloads-pvc
     podSecurityContext:
       podSecurityContext:
       runAsUser: 65534
