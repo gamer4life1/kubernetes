@@ -4,5 +4,6 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - media-pvc.yaml
-#  - downloads-pvc.yaml
+  #  - downloads-pvc.yaml
   - jellyfin
+  - flaresolverr
