@@ -87,6 +87,6 @@ spec:
         IP: 10
         ports:
           - type: tcp
-            port: 121829
+            port: 12829
           - type: tcp
-            port: 121829
+            port: 12829
