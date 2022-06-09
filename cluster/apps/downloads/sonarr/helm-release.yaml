@@ -38,7 +38,7 @@ spec:
           external-dns/is-public: "true"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         hosts:
-          - host: &host "sonarr.${SECRET_PUBLIC_DOMAIN}"
+          - host: &host "sonarr.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
