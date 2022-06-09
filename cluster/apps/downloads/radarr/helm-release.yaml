@@ -67,10 +67,10 @@ spec:
       config:
         enabled: true
         existingClaim: radarr-config
-      downloads:
+      media:
         enabled: true
-        existingClaim: downloads-pvc
-        mountMath: "/downloads"
+        existingClaim: media-pvc
+        mountPath: "/media"
     resources:
       requests:
         cpu: 100m

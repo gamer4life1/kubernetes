@@ -67,10 +67,10 @@ spec:
       config:
         enabled: true
         existingClaim: sonarr-config
-      downloads:
+      media:
         enabled: true
-        existingClaim: downloads-pvc
-        mountPath: "/downloads"
+        existingClaim: media-pvc
+        mountPath: "/media"
     resources:
       requests:
         cpu: 100m
