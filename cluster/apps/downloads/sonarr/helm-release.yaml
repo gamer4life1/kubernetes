@@ -69,7 +69,7 @@ spec:
         existingClaim: sonarr-config
       media:
         enabled: true
-        existingClaim: media-downloads
+        existingClaim: media-tvshows
         mountPath: "/media"
     resources:
       requests:
