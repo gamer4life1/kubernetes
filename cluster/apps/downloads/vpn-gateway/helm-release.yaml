@@ -34,8 +34,8 @@ spec:
             repository: ghcr.io/k8s-at-home/wireguard
             tag: v1.0.20210914
         securityContext:
-          # runAsUser: 568
-          # runAsGroup: 568
+          runAsUser: 568
+          runAsGroup: 568
           capabilities:
             drop:
               - "SYS_MODULE"
@@ -70,11 +70,7 @@ spec:
                 - port: 51820
                   protocol: UDP
             - to:
-                - ipBlock:
-                    cidr: 192.168.1.0/24
-            - to:
-                - ipBlock:
-                    cidr: 192.168.0.0/24
+                - namespaceSelector: {}
     routed_nmespaces:
       - downloads
     settings:
@@ -93,3 +89,12 @@ spec:
             port: 12829
           - type: tcp
             port: 12829
+    webhook:
+      image:
+        repository: ghcr.io/k8s-at-home/gateway-admision-controller
+        tag: v3.4.0
+      gatewayDefault: false
+      gatewayLabel: setGateway
+      gatewayAnnotation: setGateway
+      namespaceSelector:
+        label: "vpn-routed-gateway"
