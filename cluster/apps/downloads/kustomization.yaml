@@ -7,6 +7,7 @@ resources:
   - media-pvc-movies.yaml
   - media-pvc-tvshows.yaml
   - downloads-pvc.yaml
+  - vpn-gateway
   - sonarr
   - radarr
   - qbittorrent
