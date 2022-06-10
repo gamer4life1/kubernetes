@@ -18,6 +18,9 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
+    podSecurityContext:
+      supplementalGroups:
+        - 65534
     image:
       repository: linuxserver/bazarr
       tag: v0.9.0.2-ls89
