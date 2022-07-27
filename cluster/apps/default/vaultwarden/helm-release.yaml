@@ -26,7 +26,7 @@ spec:
     #   fsGroupChangePolicy: OnRootMismatch
     image:
       repository: vaultwarden/server
-      tag: 1.24.0
+      tag: 1.25.2
     env:
       DOMAIN: https://vault.${SECRET_DOMAIN}
       #DATABASE_URL: postgresql://vaultwarden:${VAULTWARDEN_POSTGRES_PASSWORD}@vaultwarden-postgresql:5432/vaultwarden
